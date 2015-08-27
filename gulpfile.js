@@ -9,6 +9,7 @@ var liveReload = require('gulp-livereload');
 var plumber = require('gulp-plumber');
 var debug = require('gulp-debug');
 var browserSync = require('browser-sync').create();
+var ghPages = require('gulp-gh-pages');
 
 //scripts
 gulp.task("scripts", function() {
@@ -54,24 +55,8 @@ gulp.task('serve', ['scripts', 'styles'], function() {
 });
 
 
-
-
-//fonts
-gulp.task("fonts", function() {
-	return gulp.src('assets/fonts/**/*.{svg,ttf,eot,woff}')
-		.pipe(debug({title: 'fonts:'}))
-		.pipe(plumber())
-		.pipe(liveReload());
-});
-
-
-gulp.task("default", ["styles", "scripts", "images", "fonts"]);
-
-gulp.task("watch", function() {
-	liveReload.listen({ start:true });
-	gulp.watch('assets/scss/**/*.scss', ['styles']);
-	gulp.watch('assets/js/**/*.js', ['scripts']);
-	gulp.watch('assets/fonts/**/*.{jsvg,ttf,eot,woff}', ['fonts']);
-	gulp.watch('assets/images/**/*.{jpg,jpeg,png,gif}', ['images']);
+gulp.task('deploy', function() {
+  return gulp.src('./**/*')
+    .pipe(ghPages());
 });
 
