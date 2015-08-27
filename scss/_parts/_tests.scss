@@ -6,6 +6,12 @@ html, body{
 	background:#494949;
 }
 
+
+#contents{
+	padding-left:100px;
+	position:relative;
+}
+
 // Navigation
 #main-navigation{
 	display:block;
@@ -18,7 +24,6 @@ html, body{
 		li{
 			display:inline-block;
 			line-height: 70px;
-			margin-left:-0.25em;
 			>a, >span{
 				display:block;
 				line-height: 70px;
@@ -36,6 +41,7 @@ html, body{
 				background:#9d7cbe;
 				text-align: center;
 				width:200px;
+				margin-left:-0em;
 				span{
 					text-transform: uppercase;
 					@include roboto(light, 15px, #404040);
@@ -91,6 +97,60 @@ html, body{
 						color:#CECECE;
 						font-size:25px;
 						margin-bottom: 15px;
+					}
+					span{
+						display: block;	
+						@include roboto(light, 15px, #CECECE);
+						text-decoration: none;
+					}
+				}
+			}
+		}
+	}
+}
+
+#side-navigation{
+	position:fixed;
+	top:0px;
+	left:0px;
+	width:100px;
+	height:100%;
+	z-index:1;
+	background:#404040;
+	ul{
+		display:block;
+		li{
+			display:block;
+			border-bottom:1px solid #373737;
+			&:last-child{
+				position:absolute;
+				bottom:0px;
+				left:0px;
+				border-bottom:0px;
+				width:100%;
+				border-top:1px solid #373737;
+			}
+			&.active{
+				a div{
+					span, i{
+						color:#9d7cbe;
+					}
+				}
+				background:#3c3c3d;
+			}
+
+			a{
+				display: block;
+				line-height:100px;
+				text-align: center;
+				div{
+					display: inline-block;
+					vertical-align: middle;
+					line-height: 1;
+					i{
+						color:#CECECE;
+						font-size:25px;
+						margin-bottom: 10px;
 					}
 					span{
 						display: block;	
