@@ -1,0 +1,6 @@
+{
+	"name" : "Hermione Granger", 
+	"status" : "admin",
+	"customImage" : true, 
+	"image" : "avatar.png"
+}

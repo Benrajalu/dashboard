@@ -1,0 +1,7 @@
+<div id="nav-userBar">
+	<img ng-if="user.customImage == true" src="img/{{ user.image }}" alt="{{ user.name }}">
+	<img ng-if="user.customImage != true " src="http://placehold.it/50x50" alt="{{ user.name }}" />
+	<p>{{ user.name }} <span>- {{ user.status }}</span></p>
+
+	<a href="">Deconnexion <i class="log-out"></i></a>
+</div>

@@ -1,0 +1,23 @@
+@mixin moon($type, $size, $color){
+	font-size:$size;
+	color:$color;
+	@if $type == 'light' {
+		font-family: 'moon-light';
+	} @else if $type == 'bold' {
+		font-family: 'moon-bold';
+   	} @else {
+		font-family: 'moon-light';
+   	}
+}
+
+@mixin roboto($type, $size, $color){
+	font-size:$size;
+	color:$color;
+	@if $type == 'light' {
+		font-family: 'roboto-light';
+	} @else if $type == 'regular' {
+		font-family: 'roboto-regular';
+   	} @else {
+		font-family: 'roboto-regular';
+   	}
+}

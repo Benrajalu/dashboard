@@ -26,10 +26,12 @@ angular.module('app', ['ngSanitize', 'ngAnimate', 'ui.router'])
         }
     }
 })
-.directive('article', function () {       
+.directive('topnav', function () {       
     return {
         restrict: 'A',
-    	templateUrl: 'content.html'
+    	  templateUrl: 'elements/topnav.html',
+        controller: 'topNav', 
+        controllerAs: 'topNav'
     };
 })
 .controller('Main', function($scope, $rootScope, $http, $stateParams, $timeout) {
