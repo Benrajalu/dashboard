@@ -70,3 +70,63 @@
 		}
 	}
 }
+
+#nav-mainNav{
+	display:block;
+	width:100%;
+	background:#3c3c3d;
+	position: relative;
+	ul{
+		display:table;
+		table-layout: fixed;
+		width:100%;
+		li{
+			display:table-cell;
+			border-left:1px solid #303030;
+			&.active{
+				a div{
+					span, i{
+						color:#fbfbfb;
+					}
+				}
+				background:#434344;
+			}
+			&:first-child{
+				border-left: 0px;
+			}
+			a{
+				display: block;
+				line-height:100px;
+				text-align: center;
+				div{
+					display: inline-block;
+					vertical-align: middle;
+					line-height: 1;
+					i{
+						color:#e0e0e0;
+						font-size:25px;
+						margin-bottom: 10px;
+					}
+					span{
+						display: block;	
+						@include moon(bold, 15px, #e0e0e0);
+						text-decoration: none;
+					}
+				}
+			}
+		}
+	}
+	#current{
+		display:block;
+		height:15px;
+		width:15px;
+		@include border-radius(100%);
+		background:$violet;
+		position:absolute;
+		bottom:0px;
+		margin:0 0 -7.5px -7.5px;
+		z-index:3;
+		left:-100px;
+		@include transition(all 200ms ease-out);
+	}
+}

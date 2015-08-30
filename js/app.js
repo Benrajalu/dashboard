@@ -8,9 +8,14 @@ angular.module('app', ['ngSanitize', 'ngAnimate', 'ui.router'])
   //
   // Now set up the states
   $stateProvider
-    .state('default', {
+    .state('dashboard', {
       url: "/",
-      templateUrl: '../fragments/index.html', 
+      templateUrl: '/elements/dashboard.html', 
+      controller: 'Main'
+    })
+    .state('pages', {
+      url: "/pages.html",
+      templateUrl: '/elements/pages.html', 
       controller: 'Main'
     })
 })

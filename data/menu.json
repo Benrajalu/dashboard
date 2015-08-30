@@ -1,0 +1,35 @@
+[{
+	"name" : "dashboard", 
+	"url" : "/",
+	"icon" : "fa-dashboard"
+}, 
+{
+	"name" : "pages", 
+	"url" : "/pages.html",
+	"icon" : "fa-file-o"
+}, 
+{
+	"name" : "Articles", 
+	"url" : "/articles.html",
+	"icon" : "fa-newspaper-o"
+}, 
+{
+	"name" : "Medias", 
+	"url" : "/medias.html",
+	"icon" : "fa-file-image-o"
+}, 
+{
+	"name" : "Menus", 
+	"url" : "/menus.html",
+	"icon" : "fa-reorder"
+}, 
+{
+	"name" : "Concours", 
+	"url" : "/concours.html",
+	"icon" : "fa-comments-o"
+}, 
+{
+	"name" : "Parametres", 
+	"url" : "/parametres.html",
+	"icon" : "fa-gear"
+}]
