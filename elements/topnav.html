@@ -6,10 +6,10 @@
 	<a href="">Deconnexion <i class="log-out"></i></a>
 </div>
 
-<nav id="nav-mainNav">
+<nav id="nav-mainNav" ng-class="{'active' : menuUp}" ng-click="menuUp = !menuUp">
 	<ul>
 		<li ng-repeat="entry in menu" ui-sref-active="active">
-			<a href ui-sref="{{ entry.name }}">
+			<a href ui-sref="{{ entry.name }}" ng-style="transition($index)">
 				<div>
 					<i class="fa {{ entry.icon }}"></i>
 					<span>{{ entry.name }}</span>
@@ -17,5 +17,7 @@
 			</a>
 		</li>
 	</ul>
-	<i id="current"></i>
 </nav>
+<button id="menu-toggle" title="Afficher le menu mobile" ng-click="menuUp = !menuUp" ng-class="{'active' : menuUp}"><i class="fa fa-plus"></i></button>
+
+<p ng-if='menuUp'>Coucou</p>

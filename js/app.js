@@ -40,5 +40,5 @@ angular.module('app', ['ngSanitize', 'ngAnimate', 'ui.router'])
     };
 })
 .controller('Main', function($scope, $rootScope, $http, $stateParams, $timeout) {
-
+  
 })
