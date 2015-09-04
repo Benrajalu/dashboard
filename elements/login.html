@@ -1,17 +1,15 @@
-{{login}}
-
 <div id="login">
-	<form id="form-login" name="login-form" action="" data-parsley-validate>
+	<form id="form-login" name="login-form" ng-submit="validate()" data-parsley-validate>
 		<h1>Admin <span><i class="fa fa-chevron-right"></i> connexion</span></h1>
-
+		<p ng-show='message' class="message">{{message}}</p>
 		<ul>
 			<li>
-				<label for="log-id">Identifiant</label>
-				<input type="text" id="log-id" name="log-id" data-parsley-required="required" />
+				<label for="log-id" ng-class="{'focus' : name, 'filled' : user.nameInput.length }">Identifiant</label>
+				<input autofocus type="text" id="log-id" name="log-id" data-parsley-required="required" ng-focus="name = true" ng-blur="name = false" ng-model="user.nameInput"/>
 			</li>
 			<li>
-				<label for="log-pass">Mot de passe</label>
-				<input type="password" id="log-pass" name="log-pass" data-parsley-required="required" />
+				<label for="log-pass" ng-class="{'focus' : pass, 'filled' : user.passInput.length }">Mot de passe</label>
+				<input type="password" id="log-pass" name="log-pass" data-parsley-required="required" ng-focus="pass = true" ng-blur="pass = false" ng-model="user.passInput"/>
 			</li>
 		</ul>
 

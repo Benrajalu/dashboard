@@ -49,11 +49,10 @@ angular.module('app', ['ngSanitize', 'ngAnimate', 'ui.router'])
         controllerAs: 'topNav'
     };
 })
-.controller('Main', function($scope, $rootScope, $http, $stateParams, $timeout) {
-  $rootScope.login = true;
-})
-.controller('login', function($scope, $rootScope, $http, $stateParams, $timeout) {
-  $rootScope.login = false;
+.controller('Main', function($scope, $rootScope, $http, $stateParams, $timeout, $state) {
+  if($rootScope.login != true){
+    $state.go('login', {}, {reload: true});
+  }
 })
 .controller('nopeCtrl', function($scope, $rootScope, $http, $stateParams, $timeout) {
   console.log('oups');
