@@ -1,0 +1,22 @@
+{{login}}
+
+<div id="login">
+	<form id="form-login" name="login-form" action="" data-parsley-validate>
+		<h1>Admin <span><i class="fa fa-chevron-right"></i> connexion</span></h1>
+
+		<ul>
+			<li>
+				<label for="log-id">Identifiant</label>
+				<input type="text" id="log-id" name="log-id" data-parsley-required="required" />
+			</li>
+			<li>
+				<label for="log-pass">Mot de passe</label>
+				<input type="password" id="log-pass" name="log-pass" data-parsley-required="required" />
+			</li>
+		</ul>
+
+		<button type="submit"><i class="fa fa-chevron-right"></i> Valider</button>
+	</form>
+
+	<button class="help">Mot de passe perdu <i class="fa fa-life-buoy"></i> </button>
+</div>
