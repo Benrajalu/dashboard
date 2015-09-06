@@ -19,6 +19,7 @@
 		@include transform(translateX(-50%) translateY(40%));
 		width:100%;
 		max-width: 390px;
+		border-bottom:3px solid $violet;
 		&.ng-hide-add-active{
 			@include opacity(0);
 			@include transform(translateX(-100px) translateY(40%));
@@ -35,7 +36,6 @@
 			@include moon(bold, 42px, $blackText);
 			margin-bottom:35px;
 			position:relative;
-
 			span{
 				font-size: 23px;
 			}
