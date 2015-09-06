@@ -11,7 +11,7 @@ angular.module('app')
   $scope.validate = function(){
     $scope.message = false;
     if($scope.user.nameInput == 'user' && $scope.user.passInput == 'llamabraguette'){
-      $state.go('dashboard', {}, {reload: true});
+      $state.go('dashboard', {}, {reload: false});
       $rootScope.login = true;
     }else{
       $scope.message = 'Votre identifiant ou votre mot de passe sont invalides, merci de rééssayer !'

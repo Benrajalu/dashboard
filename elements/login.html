@@ -1,5 +1,5 @@
 <div id="login">
-	<form id="form-login" name="login-form" ng-submit="validate()" data-parsley-validate>
+	<form id="form-login" name="login-form" ng-submit="validate()" data-parsley-validate class="form" ng-hide="recovery">
 		<h1>Admin <span><i class="fa fa-chevron-right"></i> connexion</span></h1>
 		<p ng-show='message' class="message">{{message}}</p>
 		<ul>
@@ -14,7 +14,18 @@
 		</ul>
 
 		<button type="submit"><i class="fa fa-chevron-right"></i> Valider</button>
+		<button class="help" ng-click="recovery = !recovery"><i class="fa fa-life-buoy"></i> Mot de passe perdu </button>
 	</form>
 
-	<button class="help">Mot de passe perdu <i class="fa fa-life-buoy"></i> </button>
+	<form id="form-recovery" name="recovery-form" data-parsley-validate class="form" ng-show="recovery">
+		<h1>Mot de passe</h1>
+		<p class="message">Entrez votre adresse e-mail afin de réinitialiser votre mot de passe</p>
+		<ul>
+			<li>
+				<label for="mail-id" ng-class="{'focus' : mail, 'filled' : user.mailInput.length }">Adresse e-mail</label>
+				<input autofocus type="email" id="mail-id" name="log-mail" data-parsley-required="required" ng-focus="mail = true" ng-blur="mail = false" ng-model="user.mailInput"/>
+			</li>
+		</ul>
+		<button type="submit"><i class="fa fa-chevron-right"></i> Valider</button> <button ng-click="recovery = !recovery"><i class="fa fa-close"></i> Annuler</button>
+	</form>
 </div>
