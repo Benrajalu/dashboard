@@ -1,6 +1,12 @@
 angular.module('app')
 .controller('login', function($scope, $rootScope, $http, $stateParams, $timeout, $state, $cookies) {
-  $rootScope.login = false;
+  if($cookies.get('login') == "true"){
+    $state.go('dashboard');
+  }
+  else{
+    $rootScope.login = false;
+  }
+  
   $('#form-login').parsley();
 
   $scope.user = {

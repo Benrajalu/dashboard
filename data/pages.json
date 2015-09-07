@@ -1,25 +1,30 @@
-[{
-	"name" : "index", 
-	"url" : "/",
-	"content" : "fa-dashboard"
-},
 {
-	"name" : "thing", 
-	"url" : "/thing.html",
-	"content" : "fa-dashboard"
-},
-{
-	"name" : "thing", 
-	"url" : "/thing.html",
-	"content" : "fa-dashboard"
-},
-{
-	"name" : "thing", 
-	"url" : "/thing.html",
-	"content" : "fa-dashboard"
-},
-{
-	"name" : "thing", 
-	"url" : "/thing.html",
-	"content" : "fa-dashboard"
-}]
+	"name" : "pages", 
+	"url" : "pages", 
+	"icon" : "fa-file-o",
+	"list": [{
+		"name" : "index", 
+		"url" : "/",
+		"content" : "fa-dashboard"
+	},
+	{
+		"name" : "thing", 
+		"url" : "/thing.html",
+		"content" : "fa-dashboard"
+	},
+	{
+		"name" : "thing", 
+		"url" : "/thing.html",
+		"content" : "fa-dashboard"
+	},
+	{
+		"name" : "thing", 
+		"url" : "/thing.html",
+		"content" : "fa-dashboard"
+	},
+	{
+		"name" : "thing", 
+		"url" : "/thing.html",
+		"content" : "fa-dashboard"
+	}]
+}

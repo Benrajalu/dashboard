@@ -23,6 +23,11 @@ angular.module('app', ['ngSanitize', 'ngAnimate', 'ui.router', 'ngCookies'])
       templateUrl: './elements/pages.html', 
       controller: 'Main'
     })
+    .state('articles', {
+      url: "/articles.html",
+      templateUrl: './elements/articles.html', 
+      controller: 'Main'
+    })
     .state('404', {
       url: "/404.html",
       templateUrl: './elements/pages.html', 
@@ -49,6 +54,15 @@ angular.module('app', ['ngSanitize', 'ngAnimate', 'ui.router', 'ngCookies'])
         controllerAs: 'topNav'
     };
 })
+.directive('statCard', function () {       
+    return {
+        restrict: 'A',
+        templateUrl: 'elements/stat-card.html',
+        scope:{
+          stat : "=stat"
+        }
+    };
+})
 .controller('Main', function($scope, $rootScope, $http, $stateParams, $timeout, $state, $cookies) {
   // Redirect to logiin if not logged in
     $rootScope.login = $cookies.get('login');
@@ -56,12 +70,12 @@ angular.module('app', ['ngSanitize', 'ngAnimate', 'ui.router', 'ngCookies'])
       $state.go('login', {}, {reload: true});
     }
 
-  // Get page data
+  // Get pages data
     $http.get('./data/pages.json').success(function(data){
       $scope.pages = data;
     });
 
-  // Get article data
+  // Get articles data
     $http.get('./data/articles.json').success(function(data){
       $scope.articles = data;
     });

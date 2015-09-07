@@ -9,27 +9,27 @@
 	"icon" : "fa-file-o"
 }, 
 {
-	"name" : "Articles", 
+	"name" : "articles", 
 	"url" : "/articles.html",
 	"icon" : "fa-newspaper-o"
 }, 
 {
-	"name" : "Medias", 
+	"name" : "medias", 
 	"url" : "/medias.html",
 	"icon" : "fa-file-image-o"
 }, 
 {
-	"name" : "Menus", 
+	"name" : "menus", 
 	"url" : "/menus.html",
 	"icon" : "fa-reorder"
 }, 
 {
-	"name" : "Concours", 
+	"name" : "concours", 
 	"url" : "/concours.html",
 	"icon" : "fa-comments-o"
 }, 
 {
-	"name" : "Parametres", 
+	"name" : "parametres", 
 	"url" : "/parametres.html",
 	"icon" : "fa-gear"
 }]
