@@ -74,9 +74,9 @@ angular.module('app', ['ngSanitize', 'ngAnimate', 'ui.router', 'ngCookies'])
   var makeChart = function(visits){
       var data = visits;
        
-      var margin = {top: 20, right: 20, bottom: 30, left: 50},
-          width = $('#visits').parent().outerWidth() - margin.left - margin.right,
-          height = $('#visits').parent().outerHeight() - margin.top - margin.bottom;
+      var margin = {top: 20, right: 0, bottom: 30, left: 0},
+          width = $('#visits').parent().width() - margin.left - margin.right,
+          height = $('#visits').parent().height() - margin.top - margin.bottom;
 
       var parseDate = d3.time.format("%d-%m-%Y").parse;
 
