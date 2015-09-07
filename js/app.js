@@ -35,8 +35,8 @@ angular.module('app', ['ngSanitize', 'ngAnimate', 'ui.router', 'ngCookies'])
         link: function(scope, element, attrs) {   
             element.bind("load" , function(event){ 
             	indexHeight();
-				magicLineHeight();
-				smartLine();
+      				magicLineHeight();
+      				smartLine();
             });
         }
     }
@@ -50,10 +50,21 @@ angular.module('app', ['ngSanitize', 'ngAnimate', 'ui.router', 'ngCookies'])
     };
 })
 .controller('Main', function($scope, $rootScope, $http, $stateParams, $timeout, $state, $cookies) {
-  $rootScope.login = $cookies.get('login');
-  if($rootScope.login != 'true'){
-    $state.go('login', {}, {reload: true});
-  }
+  // Redirect to logiin if not logged in
+    $rootScope.login = $cookies.get('login');
+    if($rootScope.login != 'true'){
+      $state.go('login', {}, {reload: true});
+    }
+
+  // Get page data
+    $http.get('./data/pages.json').success(function(data){
+      $scope.pages = data;
+    });
+
+  // Get article data
+    $http.get('./data/articles.json').success(function(data){
+      $scope.articles = data;
+    });
 })
 .controller('nopeCtrl', function($scope, $rootScope, $http, $stateParams, $timeout) {
   console.log('oups');

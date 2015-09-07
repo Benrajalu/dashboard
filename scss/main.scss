@@ -6,10 +6,10 @@
 @import "_tools/variables";
 
 // Common
-@import "base";
 @import "fonts";
 @import "mixins";
 @import "grid";
+@import "base";
 
 // Pages
 @import "_pages/login";

@@ -1,5 +1,5 @@
 angular.module('app')
-.controller('topNav', function($scope, $rootScope, $http, $stateParams, $timeout, $location){
+.controller('topNav', function($scope, $rootScope, $http, $stateParams, $timeout, $location, $state, $cookies){
 	// User
 	$http.get('./data/user.json').success(function(data){
 		$scope.user = data;
@@ -16,4 +16,9 @@ angular.module('app')
 		};
 		$scope.toggle = false;
 	});
+
+	$scope.logout = function(){
+		$cookies.put('login', false);
+		$state.go('login', {}, {reload: true});
+	}
 });

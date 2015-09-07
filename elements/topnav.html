@@ -3,7 +3,7 @@
 	<img ng-if="user.customImage != true " ng-src="http://placehold.it/50x50" alt="{{ user.name }}" />
 	<p>{{ user.name }} <span>- {{ user.status }}</span></p>
 
-	<a href="">Deconnexion <i class="log-out"></i></a>
+	<a href="" ng-click="logout()">Deconnexion <i class="log-out"></i></a>
 </div>
 
 <nav id="nav-mainNav" ng-class="{'active' : menuUp}" ng-click="menuUp = false">
