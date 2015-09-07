@@ -18,6 +18,12 @@ gulp.task("scripts", function() {
 		.pipe(plumber())
 		.pipe(browserSync.stream());
 });
+gulp.task("frags", function() {
+	return gulp.src('elements/**/*.js')
+		.pipe(debug({title: 'frags:'}))
+		.pipe(plumber())
+		.pipe(browserSync.stream());
+});
 
 //styles
 gulp.task("styles", function(cb) {
@@ -48,7 +54,8 @@ gulp.task('serve', ['scripts', 'styles'], function() {
         }
     });
 
-    gulp.watch("js/*.js", ['scripts']);
+    gulp.watch("js/**/*.js", ['scripts']);
+    gulp.watch("elements/**/*.js", ['frags']);
     gulp.watch("scss/**/*.scss", ['styles']);
     gulp.watch("img/**/*.{jpg,jpeg,png,gif}", ['images']);
     gulp.watch("**/*.html").on('change', browserSync.reload);

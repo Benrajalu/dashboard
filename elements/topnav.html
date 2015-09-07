@@ -1,0 +1,21 @@
+<div id="nav-userBar">
+	<img ng-if="user.customImage == true" ng-src="img/{{ user.image }}" alt="{{ user.name }}">
+	<img ng-if="user.customImage != true " ng-src="http://placehold.it/50x50" alt="{{ user.name }}" />
+	<p>{{ user.name }} <span>- {{ user.status }}</span></p>
+
+	<a href="">Deconnexion <i class="log-out"></i></a>
+</div>
+
+<nav id="nav-mainNav" ng-class="{'active' : menuUp}" ng-click="menuUp = false">
+	<ul>
+		<li ng-repeat="entry in menu" ui-sref-active="active">
+			<a href ui-sref="{{ entry.name }}" ng-style="transition($index)">
+				<div>
+					<i class="fa {{ entry.icon }}"></i>
+					<span>{{ entry.name }}</span>
+				</div>
+			</a>
+		</li>
+	</ul>
+</nav>
+<button id="menu-toggle" title="Afficher le menu mobile" ng-click="menuUp = !menuUp" ng-class="{'active' : menuUp}"><i class="fa fa-plus"></i></button>

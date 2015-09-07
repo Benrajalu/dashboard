@@ -1,0 +1,185 @@
+#login{
+	position:fixed;
+	width:100%;
+	height:100%;
+	top:0px;
+	left:0px;
+	background:url('../img/login.jpg') center center no-repeat;
+	background-size:cover;
+	text-align: center;
+	.form{
+		position:absolute;
+		bottom:50%;
+		left:50%;
+		@include transition(all 300ms ease-out);
+		//background:rgba(255,255,255,0.9);
+		padding:40px 30px;
+		@include border-radius(3px);
+		display:inline-block;
+		@include transform(translateX(-50%) translateY(40%));
+		width:100%;
+		max-width: 390px;
+		border-bottom:3px solid $violet;
+		&.ng-hide-add-active{
+			@include opacity(0);
+			@include transform(translateX(-100px) translateY(40%));
+		}
+		&.ng-hide-remove{
+			@include transition(all 300ms ease-out 100ms);
+			@include opacity(0);
+		}
+		&.ng-hide-remove-active{
+			@include transform(translateX(100px) translateY(40%));
+			@include opacity(0);
+		}
+		h1{
+			@include moon(bold, 42px, $blackText);
+			margin-bottom:35px;
+			position:relative;
+			span{
+				font-size: 23px;
+			}
+			i{
+				color:$violet;
+			}
+		}
+
+		p.message{
+			padding-bottom:20px;
+			max-width:320px;
+			@include roboto(regular, 13px, $violet);
+			line-height: 1.3;
+			overflow: hidden;
+			@include transition(all 300ms ease-out);
+			height:70px;
+			@include opacity(1);
+			&.ng-hide{
+				height:0px;
+				@include opacity(0);
+			}
+
+		}
+		ul{
+			li{
+				position:relative;
+				margin-bottom: 35px;
+				label{
+					position:absolute;
+					top:0px;
+					left:0px;
+					@include roboto(light, 12px, $blackText);
+					line-height: 40px;
+					@include transition(all 200ms ease-out);
+					&.filled, &.focus{
+						top:-29px;
+					}
+				}
+				input{
+					width:100%;
+					display:block;
+					height:40px;
+					line-height: 40px;
+					padding:0px 5px;
+					@include roboto(regular, 15px, $blackText);
+					border:0px;
+					border-bottom:1px solid $blackText;
+					background:transparent;
+					-webkit-appearance:none;
+					&:active, &:focus{
+						outline: 0;
+					}
+					&.parsley-error{
+						border-color:$violet;
+					}
+				}
+				input:-webkit-autofill{
+					-webkit-box-shadow: 0 0 0 1000px transparent inset;
+				}
+				.parsley-errors-list.filled{
+					@include roboto(regular, 13px, $violet);
+					padding-top:5px;
+				}
+			}
+		}
+
+		button{
+			display: inline-block;
+			margin-top:10px;
+			background:transparent;
+			border:0px;
+			padding:3px 10px;
+			margin-right:5px;
+			@include moon(bold, 14px, $blackText);
+			cursor: pointer;
+			-webkit-appearance:none;
+			background:#fff;
+			i{
+				@include transition(all 200ms ease-out);
+				color: $violet;
+			}
+			&:hover{
+				i{
+					padding-right:5px;
+				}
+			}
+
+			&:active{
+				outline:0;
+				i{
+					padding-right:7px;
+				}
+			}
+		}
+	}
+
+	@media only screen and (max-width:485px){
+		text-align:left;
+		.form{
+			display:inline-block;
+			text-align: left;
+			max-width: 95%;
+			padding:10px;
+			@include transform(translateX(-50%) translateY(50%));
+			h1{
+				line-height: 0.8;
+			}
+			button{
+				display:block;
+				text-align: center;
+				width:100%;
+				padding:10px;
+			}
+
+			&.ng-hide-add-active{
+				@include transform(translateX(-100px) translateY(50%));
+			}
+			&.ng-hide-remove-active{
+				@include transform(translateX(100px) translateY(50%));
+			}
+		}
+	}
+}
+
+.view.ng-leave {
+	@include transition(all 500ms ease-out);
+    #login{
+    	@include transition(all 500ms ease-out);
+    }
+}
+.view.ng-enter {
+	@include transition(all 500ms ease-out);
+    #login{
+    	@include transition(all 500ms ease-out);
+    	@include opacity(0);
+    }
+}
+.view.ng-enter-active {
+    #login{
+		@include opacity(1);
+    }
+}
+.view.ng-leave-active {
+    #login{
+		@include opacity(0);
+    }
+}
