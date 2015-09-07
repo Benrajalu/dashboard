@@ -21,3 +21,19 @@
 		font-family: 'roboto-regular';
    	}
 }
+
+// Tools
+
+@mixin clearfix(){
+	&:before,
+	&:after {
+	    content: " "; /* 1 */
+	    display: table; /* 2 */
+	}
+
+	&:after {
+	    clear: both;
+	}
+
+	*zoom: 1;
+}

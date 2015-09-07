@@ -1,5 +1,5 @@
 
-angular.module('app', ['ngSanitize', 'ngAnimate', 'ui.router'])
+angular.module('app', ['ngSanitize', 'ngAnimate', 'ui.router', 'ngCookies'])
 .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
   //
   // For any unmatched url, redirect to /state1
@@ -49,8 +49,9 @@ angular.module('app', ['ngSanitize', 'ngAnimate', 'ui.router'])
         controllerAs: 'topNav'
     };
 })
-.controller('Main', function($scope, $rootScope, $http, $stateParams, $timeout, $state) {
-  if($rootScope.login != true){
+.controller('Main', function($scope, $rootScope, $http, $stateParams, $timeout, $state, $cookies) {
+  $rootScope.login = $cookies.get('login');
+  if($rootScope.login != 'true'){
     $state.go('login', {}, {reload: true});
   }
 })
