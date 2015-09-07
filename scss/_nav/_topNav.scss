@@ -325,3 +325,14 @@
 		bottom:10px;
 	}
 }
+
+#table-navigation{
+	position:relative;
+	@include transition(all 300ms ease-out 200ms);
+	@include opacity(1);
+	top:0px;
+	&.ng-hide{
+		@include opacity(0);
+		top:-50px;
+	}
+}

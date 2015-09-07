@@ -158,15 +158,28 @@
 			}
 		}
 	}
+}
 
-	@media only screen and (max-width: 485px), screen and (max-height: 550px){
-		.help{
-			text-align: center;
-			top:10px;
-			position:static;
-			right:0%;
-			padding:0 20px;
-			width:100%;
-		}
-	}
+.view.ng-leave {
+	@include transition(all 500ms ease-out);
+    #login{
+    	@include transition(all 500ms ease-out);
+    }
+}
+.view.ng-enter {
+	@include transition(all 500ms ease-out);
+    #login{
+    	@include transition(all 500ms ease-out);
+    	@include opacity(0);
+    }
+}
+.view.ng-enter-active {
+    #login{
+		@include opacity(1);
+    }
+}
+.view.ng-leave-active {
+    #login{
+		@include opacity(0);
+    }
 }
