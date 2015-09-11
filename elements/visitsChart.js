@@ -5,8 +5,8 @@ angular.module('app')
 	    var data = visits;
 	     
 	    var margin = {top: 0, right: 0, bottom: 0, left: 0},
-	        width = $('#visits').outerWidth() + 15,
-	        height = $('#visits').outerHeight();
+	        width = $('#visits').outerWidth(),
+	        height = $('#visits').outerHeight() - 10;
 
 	    var parseDate = d3.time.format("%d-%m-%Y").parse;
 
@@ -18,14 +18,35 @@ angular.module('app')
 
 	    var xAxis = d3.svg.axis()
 	        .scale(x)
-	        .orient("top");
+	        .ticks(7)
+	        .outerTickSize(0)
+	        .orient("top")
+	        .tickFormat(function(d, i){
+	        	// use d for data, i for index of tick. NOT DOCUMENTED
+	        	if(i == "0" || i == data.length - 1){
+	        		return ''
+	        	}
+	        	else{
+	        		var format = d3.time.format("%d/%m");
+	        		return (format(d));
+	        	}
+	        });
 
 	    var yAxis = d3.svg.axis()
 	        .scale(y)
-	        .orient("left");
+	        .innerTickSize(width)
+	        .orient("right")
+	        .tickFormat(function(d, i){
+	        	if(i == "0"){
+	        		return ''
+	        	}
+	        	else{
+	        		return d
+	        	}
+	        });
 
 	    var area = d3.svg.area()
-	        .interpolate("basis")  
+	        .interpolate("cardinal")  
 	        .x(function(d) { return x(d.date); })
 	        .y0(height)
 	        .y1(function(d) { return y(d.visits); });
@@ -33,6 +54,7 @@ angular.module('app')
 	    var svg = d3.select("#visits").append("svg")
 	        .attr("width", width + margin.left + margin.right)
 	        .attr("height", height + margin.top + margin.bottom)
+	        .attr("class", "d3Chart")
 	        .append("g")
 	        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
@@ -71,16 +93,20 @@ angular.module('app')
 		  .attr("style", "position:relative; z-index:2")
 		  .call(xAxis);
 
+
 		svg.append("g")
 		  .attr("class", "y axis")
 		  .attr("style", "position:relative; z-index:2")
 		  .call(yAxis)
-		.append("text")
-		  .attr("transform", "rotate(-90)")
-		  .attr("y", 6)
-		  .attr("dy", ".71em")
-		  .style("text-anchor", "end")
-		  .text("Price ($)");
+		.selectAll("text")
+		    .attr("y", 6)
+		    .attr("x", 10)
+		    .attr("class", "scale")
+		    .style("text-anchor", "end");
+
+		svg.selectAll("text")
+		    .filter(function (d) { return d === 0;  })
+		    .remove();
 	}
 
 	// Get visits
