@@ -16,6 +16,7 @@ html, body{
 	overflow: hidden;
 	padding:0px;
 	position:relative;
+	min-height:280px;
 	a{
 		text-decoration: none;
 		display: block;
@@ -104,7 +105,8 @@ html, body{
 			@include transform(scale(0.98));
 		}
 	}
-
+	
+	// Chart children
 	.chart{
 		position:absolute;
 		left:0px;
@@ -119,18 +121,35 @@ html, body{
 		display:block;
 		position:absolute;
 		left:0px;
-		bottom:-10px;
+		bottom:-50px;
 		overflow: visible;
+	}
+
+	// Title types
+	.chart-title{
+		padding:0 5px;
+		@include moon(light, 20px, $greyText);
+		line-height: 50px;
+		&:before{
+			content:"";
+			width:10px;
+			height:10px;
+			@include border-radius(100%);
+			background:$violet;
+			display:inline-block;
+			margin-right:5px;
+			vertical-align: middle;
+		}
 	}
 }
 
 .d3Chart{
 	text{
-		@include moon(light, 12px, $greyText);
+		@include moon(light, 14px, $greyText);
 		fill: $greyText;
 		&.scale{
 			@include moon(bold, 12px, $greyText);
-			fill:#e0e0e0
+			fill:#c3c3c3
 		}
 	}
 	.axis line {
@@ -144,11 +163,25 @@ html, body{
 
 	.y.axis line{
 		stroke: #f4f4f4;
-		opacity:0.2 !important;
+		opacity:0.3 !important;
 	}
 
 	.x.axis line{
 		stroke:$black;
 		//fill:$black;
+	}
+
+	.overlay {
+	  fill: none;
+	  pointer-events: all;
+	}
+
+	.focus text{
+		@include moon(bold, 15px, $black);
+		fill:$black;
+	}
+	.focus circle {
+	  fill: #fff;
+	  stroke: $violet;
 	}
 }

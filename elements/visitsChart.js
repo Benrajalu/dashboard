@@ -6,7 +6,8 @@ angular.module('app')
 	     
 	    var margin = {top: 0, right: 0, bottom: 0, left: 0},
 	        width = $('#visits').outerWidth(),
-	        height = $('#visits').outerHeight() - 10;
+	        height = $('#visits').outerHeight() - 50,
+	        bisectDate = d3.bisector(function(d) { return d.date; }).left;
 
 	    var parseDate = d3.time.format("%d-%m-%Y").parse;
 
@@ -19,7 +20,6 @@ angular.module('app')
 	    var xAxis = d3.svg.axis()
 	        .scale(x)
 	        .ticks(7)
-	        .outerTickSize(0)
 	        .orient("top")
 	        .tickFormat(function(d, i){
 	        	// use d for data, i for index of tick. NOT DOCUMENTED
@@ -30,7 +30,8 @@ angular.module('app')
 	        		var format = d3.time.format("%d/%m");
 	        		return (format(d));
 	        	}
-	        });
+	        })
+	        .outerTickSize(0);
 
 	    var yAxis = d3.svg.axis()
 	        .scale(y)
@@ -64,6 +65,13 @@ angular.module('app')
 			d.visits = +d.visits;
 		}); 
 
+		var startData = data.map( function( datum ) {
+	       return {
+	       	date  : datum.date,
+	       	visits : 0
+	       };
+	    });
+
 		x.domain(d3.extent(data, function(d) { return d.date; }));
 		y.domain([0, d3.max(data, function(d) { return d.visits; })]);
 
@@ -82,10 +90,19 @@ angular.module('app')
 		    .attr("stop-color", function(d) { return d.color; });
 
 		svg.append("path")
-		  .datum(data)
+		  .datum(startData)
 		  .attr("class", "area")
 		  .attr("d", area)
-		  .attr("style", "position:relative; z-index:1");
+		  .attr("style", "position:relative; z-index:1")
+		  .transition()
+	        .duration( 1000 )
+	        .attrTween( 'd', function() {
+	          var interpolator = d3.interpolateArray( startData, data );
+	          
+	          return function( t ) {
+	            return area( interpolator( t ) );
+	          }
+	       });
 
 		svg.append("g")
 		  .attr("class", "x axis")
@@ -100,13 +117,38 @@ angular.module('app')
 		  .call(yAxis)
 		.selectAll("text")
 		    .attr("y", 6)
-		    .attr("x", 10)
+		    .attr("x", 5)
 		    .attr("class", "scale")
-		    .style("text-anchor", "end");
+		    .style("text-anchor", "start");
 
-		svg.selectAll("text")
-		    .filter(function (d) { return d === 0;  })
-		    .remove();
+		var focus = svg.append("g")
+		      .attr("class", "focus")
+		      .style("display", "none");
+
+		  focus.append("circle")
+		      .attr("r", 4.5);
+
+		  focus.append("text")
+		      .attr("x", 9)
+		      .attr("dy", ".35em");
+
+		  svg.append("rect")
+		      .attr("class", "overlay")
+		      .attr("width", width)
+		      .attr("height", height)
+		      .on("mouseover", function() { focus.style("display", null); })
+		      .on("mouseout", function() { focus.style("display", "none"); })
+		      .on("mousemove", mousemove);
+
+		  function mousemove() {
+		    var x0 = x.invert(d3.mouse(this)[0]),
+		        i = bisectDate(data, x0, 1),
+		        d0 = data[i - 1],
+		        d1 = data[i],
+		        d = x0 - d0.date > d1.date - x0 ? d1 : d0;
+		    focus.attr("transform", "translate(" + x(d.date) + "," + y(d.visits) + ")");
+		    focus.select("text").text(d.visits);
+		  }
 	}
 
 	// Get visits
