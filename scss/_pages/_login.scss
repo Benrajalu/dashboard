@@ -12,14 +12,13 @@
 		bottom:50%;
 		left:50%;
 		@include transition(all 300ms ease-out);
-		//background:rgba(255,255,255,0.9);
 		padding:40px 30px;
-		@include border-radius(3px);
+		@include border-radius(8px);
 		display:inline-block;
 		@include transform(translateX(-50%) translateY(40%));
 		width:100%;
-		max-width: 390px;
-		border-bottom:3px solid $violet;
+		max-width: 300px;
+		background:#fff;
 		&.ng-hide-add-active{
 			@include opacity(0);
 			@include transform(translateX(-100px) translateY(40%));
@@ -33,11 +32,11 @@
 			@include opacity(0);
 		}
 		h1{
-			@include moon(bold, 42px, $blackText);
+			@include moon(bold, 22px, $blackText);
 			margin-bottom:35px;
 			position:relative;
 			span{
-				font-size: 23px;
+				font-size: 16px;
 			}
 			i{
 				color:$violet;
@@ -133,12 +132,10 @@
 	}
 
 	@media only screen and (max-width:485px){
-		text-align:left;
 		.form{
 			display:inline-block;
-			text-align: left;
-			max-width: 95%;
-			padding:10px;
+			width: 95%;
+			padding:30px 10px 10px;
 			@include transform(translateX(-50%) translateY(50%));
 			h1{
 				line-height: 0.8;
@@ -168,14 +165,16 @@
 }
 .view.ng-enter {
 	@include transition(all 500ms ease-out);
-    #login{
+    #login .form{
     	@include transition(all 500ms ease-out);
     	@include opacity(0);
+    	@include transform(translateX(-50%) translateY(90%));
     }
 }
 .view.ng-enter-active {
-    #login{
+    #login .form{
 		@include opacity(1);
+		@include transform(translateX(-50%) translateY(40%));
     }
 }
 .view.ng-leave-active {
