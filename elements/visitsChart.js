@@ -79,8 +79,8 @@ angular.module('app')
 	  	    svg.append("linearGradient")
 	  			.attr("id", "grad")
 	  			.attr("gradientUnits", "userSpaceOnUse")
-	  			.attr("x1", 0).attr("y1", y(0))
-	  			.attr("x2", 0).attr("y2", y(2))
+	  			.attr("x1", 0).attr("y1", y(2))
+	  			.attr("x2", 0).attr("y2", y(5))
 	  		    .selectAll("stop")
 	  		    .data([
 	  		      {offset: "0%", color: "#9d7cbe"},
@@ -118,7 +118,7 @@ angular.module('app')
 	  		  .call(yAxis)
 	  		.selectAll("text")
 	  		    .attr("y", 6)
-	  		    .attr("x", 5)
+	  		    .attr("x", 7)
 	  		    .attr("class", "scale")
 	  		    .style("text-anchor", "start");
 
