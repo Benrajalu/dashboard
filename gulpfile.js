@@ -69,9 +69,35 @@ gulp.task('serve', ['scripts', 'styles'], function() {
     gulp.watch("**/*.html").on('change', browserSync.reload);
 });
 
+gulp.task('build', function() {
+  	gulp.src('assets/css/*')
+  			.pipe(gulp.dest('dist/assets/css'));
+  	gulp.src('assets/fonts/**/*')
+  			.pipe(gulp.dest('dist/assets/fonts'));
+  	gulp.src('assets/img/*')
+  			.pipe(gulp.dest('dist/assets/img'));
+  	gulp.src('assets/js/*')
+  			.pipe(gulp.dest('dist/assets/js'));
+
+  	gulp.src('bower_components/**/*.min.js')
+  			.pipe(gulp.dest('dist/bower_components'));
+
+  	gulp.src('data/*')
+  			.pipe(gulp.dest('dist/data'));
+
+  	gulp.src('elements/*')
+  			.pipe(gulp.dest('dist/elements'));
+
+  	gulp.src('views/*')
+  			.pipe(gulp.dest('dist/views'));
+
+  	gulp.src('*.html')
+  			.pipe(gulp.dest('dist'));
+});
+
 
 gulp.task('deploy', function() {
-  return gulp.src('./**/*')
+  return gulp.src('dist/**/*')
     .pipe(ghPages());
 });
 
