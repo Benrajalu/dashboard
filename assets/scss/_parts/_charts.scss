@@ -1,0 +1,42 @@
+.d3Chart{
+	text{
+		@include moon(light, 14px, $greyText);
+		fill: $greyText;
+		&.scale{
+			@include moon(bold, 12px, $greyText);
+			fill:#c3c3c3
+		}
+	}
+	.axis line {
+	  fill: none;
+	  shape-rendering: crispEdges;
+	}
+
+	.domain{
+	  display: none;
+	}
+
+	.y.axis line{
+		stroke: #f4f4f4;
+		opacity:0.3 !important;
+	}
+
+	.x.axis line{
+		stroke:$black;
+		//fill:$black;
+	}
+
+	.overlay {
+	  fill: none;
+	  pointer-events: all;
+	}
+
+	.focus text{
+		@include moon(bold, 15px, $black);
+		fill:$black;
+	}
+	.focus circle {
+	  fill: #fff;
+	  stroke: $violet;
+	}
+}
