@@ -2,7 +2,7 @@
 .publish
 /bower_components
 /node_modules
-/css/*
+assets/css/*
 
 # OSX Crap
 .DS_Store
