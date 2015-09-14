@@ -222,6 +222,9 @@
 					width:0%;
 					@include opacity(1);
 				}
+				&:hover{
+					background:#fff
+				}
 				&.active{
 					background:transparent;
 					&:after{

@@ -127,9 +127,10 @@ html, body{
 
 	// Title types
 	.chart-title{
-		padding:0 5px;
-		@include moon(light, 20px, $greyText);
-		line-height: 50px;
+		padding:0 10px 0px 5px;
+		@include moon(bold, 18px, $greyText);
+		line-height: 45px;
+		text-align: left;
 		&:before{
 			content:"";
 			width:10px;
@@ -137,7 +138,7 @@ html, body{
 			@include border-radius(100%);
 			background:$violet;
 			display:inline-block;
-			margin-right:5px;
+			margin-right:10px;
 			vertical-align: middle;
 		}
 	}

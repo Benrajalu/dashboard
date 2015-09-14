@@ -8,29 +8,29 @@ angular.module('app', ['ngSanitize', 'ngAnimate', 'ui.router', 'ngCookies'])
   //
   // Now set up the states
   $stateProvider
-  .state('login', {
+    .state('login', {
       url: "/login.html",
-      templateUrl: './elements/login.html', 
+      templateUrl: './views/login.html', 
       controller: 'login'
     })
     .state('dashboard', {
       url: "/",
-      templateUrl: './elements/dashboard.html', 
+      templateUrl: './views/dashboard.html', 
       controller: 'Main'
     })
     .state('pages', {
       url: "/pages.html",
-      templateUrl: './elements/pages.html', 
+      templateUrl: './views/pages.html', 
       controller: 'Main'
     })
     .state('articles', {
       url: "/articles.html",
-      templateUrl: './elements/articles.html', 
+      templateUrl: './views/articles.html', 
       controller: 'Main'
     })
     .state('404', {
       url: "/404.html",
-      templateUrl: './elements/pages.html', 
+      templateUrl: './views/pages.html', 
       controller: 'nopeCtrl'
     })
 })
@@ -49,7 +49,7 @@ angular.module('app', ['ngSanitize', 'ngAnimate', 'ui.router', 'ngCookies'])
 .directive('topnav', function () {       
     return {
         restrict: 'A',
-    	  templateUrl: 'elements/topnav.html',
+    	  templateUrl: './elements/topnav.html',
         controller: 'topNav', 
         controllerAs: 'topNav'
     };
@@ -57,7 +57,7 @@ angular.module('app', ['ngSanitize', 'ngAnimate', 'ui.router', 'ngCookies'])
 .directive('statCard', function () {       
     return {
         restrict: 'A',
-        templateUrl: 'elements/stat-card.html',
+        templateUrl: './elements/stat-card.html',
         scope:{
           stat : "=stat"
         }
@@ -66,7 +66,7 @@ angular.module('app', ['ngSanitize', 'ngAnimate', 'ui.router', 'ngCookies'])
 .directive('visitChart', function(){
   return {
     restrict : 'AE', 
-    templateUrl: 'elements/visits-chart.html', 
+    templateUrl: './elements/visits-chart.html', 
     controller: 'visitsCtrl'
   };
 })
