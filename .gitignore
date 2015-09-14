@@ -1,3 +1,13 @@
-.sass-cache/
-bower_components/
-node_modules/
+.sass-cache
+/bower_components
+/node_modules
+/css
+
+# OSX Crap
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
