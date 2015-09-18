@@ -13,7 +13,7 @@
 
 	<div class="row table-large">
 		<div class="item-list large-4 columns">
-			<h2 class="list-title"><span class="contents">pages <em>recentes</em></span></h2>
+			<h2 class="action-title"><span class="contents">pages <em>recentes</em></span></h2>
 			<ul class="list">
 				<li ng-repeat="page in pages.list | limitTo: 5">
 					<a href="">
@@ -26,8 +26,8 @@
 		</div>
 
 		<div class="item-list large-4 columns">
-			<h2 class="list-title">
-				<span class="contents">Articles <em>recents</em></span><a href="#">Ajouter <i class="fa fa-plus"></i></a>
+			<h2 class="action-title">
+				<span class="contents">Articles <em>recents</em></span><a href="#" class="action">Ajouter <i class="fa fa-plus"></i></a>
 			</h2>
 			<ul class="list">
 				<li ng-repeat="article in articles.list | limitTo: 5">
@@ -41,9 +41,10 @@
 		</div>
 
 		<form class="card draft-card large-4 columns">
-			<h3 class="widget-title with-padding">Brouillon rapide</h3>
+			<h2 class="action-title">
+				<span class="contents">Brouillon <em>rapide</em></span><button type="submit" class="action">Enregistrer <i class="fa fa-save"></i></a>
+			</h2>
 			<textarea placeholder="Votre brouillon"></textarea>
-			<input type="submit" value="Enregistrer" />
 		</form>
 	</div>
 </div>
