@@ -24,6 +24,7 @@
 				display:block;
 				>.columns{
 					display:block;
+					float:left
 				}
 			}
 		}
@@ -84,15 +85,16 @@
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
 		box-sizing: border-box;
-		padding:0 0.25em;
 		@for $i from 1 through 12{
 			&.small-#{$i}{
-				width:(100%/12) * $i;	
+				width:(100%/12) * $i;
+				float:left;	
 			}
 		}
 		@for $i from 1 through 12{
 			&.medium-#{$i}{
-				width:(100%/12) * $i;	
+				width:(100%/12) * $i;
+				float:left;	
 			}
 		}
 		@for $i from 1 through 12{
@@ -167,7 +169,6 @@
 
 			@for $i from 1 through 12{
 				&.medium-#{$i}{
-					padding:0 10px;
 					width:(100%/12) * $i;	
 				}
 			}

@@ -49,7 +49,7 @@
 				z-index:3;
 				span{
 					display:block;
-					@include moon(bold, 20px, #fff);
+					@include moon(bold, 18px, #fff);
 					padding:10px 0px;
 				}
 			}
@@ -61,7 +61,7 @@
 			z-index:3;
 			background:#fff;
 			p{
-				@include moon(light, 20px, $greyText);
+				@include moon(light, 18px, $greyText);
 			}
 			i{
 				position:absolute;
@@ -113,23 +113,41 @@
 			overflow: visible;
 		}
 	}
-	
+}
 
-	// Title types
-	.chart-title{
-		padding:0 10px 0px 5px;
-		@include moon(bold, 18px, $greyText);
-		line-height: 45px;
-		text-align: left;
-		&:before{
-			content:"";
-			width:10px;
-			height:10px;
-			@include border-radius(100%);
-			background:$violet;
+.widget-title{
+	margin-bottom:20px;
+	padding:0 10px 0px 5px;
+	@include moon(bold, 16px, $greyText);
+	text-align: left;
+	&.with-padding{
+		padding-top:15px;
+	}
+	&:before{
+		content:"";
+		width:10px;
+		height:10px;
+		@include border-radius(100%);
+		background:$violet;
+		display:inline-block;
+		margin-right:10px;
+		vertical-align: middle;
+	}
+	.button{
+		float:right;
+		@include moon(light, 13px, $greyText);
+		line-height: 18px;
+		i{
 			display:inline-block;
-			margin-right:10px;
-			vertical-align: middle;
+			width:20px;
+			height:20px;
+			line-height: 20px;
+			text-align: center;
+			color:#fff;
+			background:$violet;
+			@include border-radius(100%);
+			position:relative;
+			right:-5px;
 		}
 	}
 }

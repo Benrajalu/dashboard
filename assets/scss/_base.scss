@@ -8,3 +8,202 @@ html, body{
 #contents .page{
 	padding:20px;
 }
+
+
+.item-list{
+	padding:15px;
+	.list{
+		//float:left;
+		//width:70%;
+		//padding-left:15px;
+		li{
+			display:block;
+			background:#fff;
+			position:relative;
+			@include border-radius(3px);
+			margin-bottom:10px;
+			overflow: hidden;
+			@include transition(transform, 500ms, ease-in-out);
+			&:before{
+				content:"";
+				width:20px;
+				height:20px;
+				@include border-radius(100%);
+				background:$violet;
+				display:inline-block;
+				vertical-align: middle;
+				position:absolute;
+				left:-30px;
+				top:50%;
+				margin-top:-10px;
+				@include opacity(0);
+				@include transition(all 300ms ease-out 100ms);
+			}
+			a{
+				display:block;
+				padding:15px 0px 15px 20px;
+				text-decoration: none;
+				&:after{
+					content:"";
+					@include border-radius(100%);
+					width:30px;
+					height:30px;
+					right:-40px;
+					top:50%;
+					margin-top:-15px;
+					background:$violet;
+					display:block;
+					z-index:1;
+					position:absolute;
+					@include transition(all 200ms ease-out);
+				}
+				i{
+					position:absolute;
+					right:10px;
+					top:50%;
+					height:30px;
+					margin-top:-15px;
+					color:$violet;
+					font-size:25px;
+					z-index:2;
+					width: 30px;
+					line-height: 30px;
+					text-align: center;
+					@include transition(all 200ms ease-out);
+					&:after{
+						display:inline-block;
+					}
+				}
+				p{
+					@include roboto(regular, 16px, $greyText);
+					text-transform: uppercase;
+					line-height: 20px;
+					@include transition(all 300ms ease-out);
+					white-space: nowrap;
+					&.small{
+						font-family: 'roboto-light';
+						font-size: 13px;
+						text-transform: none;
+						transition-delay:100ms;
+						em{
+							color:$violet;
+						}
+					}
+				}
+			}
+
+			&:hover{
+				//@include transform(scale(1.02));
+				&:before{
+					background:$violet;
+					@include opacity(1);
+					left:-10px;
+				}
+				a{
+					p{
+						padding-left:10px;
+					}
+					&:after{
+						right:15px;
+						background:$violet;
+					}
+					i{
+						right:14px;
+						color:#fff;
+					}
+				}
+			}
+		}
+	}
+}
+
+.list-title{
+	line-height: 40px;
+	@include border-radius(3px);
+	margin-bottom:15px;
+	@include clearfix();
+	.contents, a{
+		display:inline-block;
+		vertical-align: middle;
+		//padding:15px;
+		line-height: 1;
+	}
+	.contents{
+		width:60%;
+		@include moon(bold, 18px, $greyText);
+		em{
+			@include roboto(light, 13px, $violet);
+			display: block;
+			text-transform: uppercase;
+		}
+	}
+	a{
+		width:40%;
+		line-height: 40px;
+		text-align:right;
+		border-left:1px solid #cacaca;
+		@include moon(bold, 13px, $greyText);
+		text-decoration: none;
+		@include transition(all 200ms ease-out);
+		@include border-radius(0 3px 3px 0px);
+		i{
+			color:$violet;
+			padding-left:10px;
+			@include transition(all 200ms ease-out);
+			@include transform(rotate(0deg));
+		}
+		&:hover{
+			padding-right:10px;
+			color:#fff;
+			background:$violet;
+			i{
+				color:#fff;
+				padding-left:5px;
+				@include transform(rotate(360deg));
+			}
+		}
+	}
+}
+
+.card{
+	&.draft-card{
+		position:relative;
+		padding:0px 0px 0px;
+		.widget-title{
+			position:relative;
+			z-index:3;
+			border-bottom:3px solid $violet;
+			padding-bottom:15px;
+			background:#fff;
+		}
+		textarea{
+			display:block;
+			width:100%;
+			resize:none;
+			border:0px;
+			min-height:100px;
+			margin-bottom: 20px;
+			padding:60px 10px 65px;
+			@include roboto(light, 13px, $greyText);
+			margin: 0px;
+			position: absolute;
+			bottom:0px;
+			left:0px;
+			height:100%;
+			z-index:1;
+		}
+		input[type="submit"]{
+			@include moon(light, 13px, #fff);
+			background:$violet;
+			@include border-radius(3px);
+			border:2px solid $violet;
+			-webkit-appearance:none;
+			padding:0px 10px;
+			line-height: 30px;
+			position:absolute;
+			bottom:15px;
+			right:15px;
+			z-index:3;
+		}
+	}
+}

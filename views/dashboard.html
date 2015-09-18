@@ -1,14 +1,50 @@
 <div class="page">
 	<div class="row table-large">
 		
-		<article class="card stat-card large-3 columns" stat-card stat="pages"></article>
+		<article class="card stat-card large-3 medium-6 columns" stat-card stat="pages"></article>
 
-		<article class="card stat-card large-3 columns" stat-card stat="articles"></article>
+		<article class="card stat-card large-3 medium-6 columns" stat-card stat="articles"></article>
 
-		<div class="card large-6 columns">
-			<h3 class="chart-title">Visites</h3>
+		<div class="card large-6 medium-12 columns">
+			<h3 class="widget-title with-padding">Visites</h3>
 			<div id="visits" class="chart" visit-chart></div>
 		</div>
+	</div>
+
+	<div class="row table-large">
+		<div class="item-list large-4 columns">
+			<h2 class="list-title"><span class="contents">pages <em>recentes</em></span></h2>
+			<ul class="list">
+				<li ng-repeat="page in pages.list | limitTo: 5">
+					<a href="">
+						<p>{{ page.name }}</p>
+						<p class='small'><em>url:</em> {{ page.url }}</p>
+						<i class="fa fa-angle-right"></i>
+					</a>
+				</li>
+			</ul>
+		</div>
+
+		<div class="item-list large-4 columns">
+			<h2 class="list-title">
+				<span class="contents">Articles <em>recents</em></span><a href="#">Ajouter <i class="fa fa-plus"></i></a>
+			</h2>
+			<ul class="list">
+				<li ng-repeat="article in articles.list | limitTo: 5">
+					<a href="">
+						<p>{{ article.name }}</p>
+						<p class='small'><em>url:</em> {{ article.url }} • <em>Categorie:</em> {{ article.parentPage }}</p>
+						<i class="fa fa-angle-right"></i>
+					</a>
+				</li>
+			</ul>
+		</div>
+
+		<form class="card draft-card large-4 columns">
+			<h3 class="widget-title with-padding">Brouillon rapide</h3>
+			<textarea placeholder="Votre brouillon"></textarea>
+			<input type="submit" value="Enregistrer" />
+		</form>
 	</div>
 </div>
 
