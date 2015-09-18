@@ -8,23 +8,23 @@
 		"content" : "fa-dashboard"
 	},
 	{
-		"name" : "thing", 
-		"url" : "/thing.html",
+		"name" : "Prestations", 
+		"url" : "/prestations.html",
 		"content" : "fa-dashboard"
 	},
 	{
-		"name" : "thing", 
-		"url" : "/thing.html",
+		"name" : "Références", 
+		"url" : "/references.html",
 		"content" : "fa-dashboard"
 	},
 	{
-		"name" : "thing", 
-		"url" : "/thing.html",
+		"name" : "Contact", 
+		"url" : "/contact.html",
 		"content" : "fa-dashboard"
 	},
 	{
-		"name" : "thing", 
-		"url" : "/thing.html",
+		"name" : "Blog", 
+		"url" : "/blog.html",
 		"content" : "fa-dashboard"
 	}]
 }

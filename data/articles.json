@@ -3,37 +3,37 @@
 	"url" : "articles", 
 	"icon" : "fa-newspaper-o",
 	"list":[{
-		"name" : "index", 
+		"name" : "Tarte au citron meringuée", 
 		"parentPage": "index",
 		"url" : "/",
 		"content" : "fa-dashboard"
 	},
 	{
-		"name" : "thing", 
+		"name" : "Boulettes végétariennes", 
 		"parentPage": "index",
 		"url" : "/thing.html",
 		"content" : "fa-dashboard"
 	},
 	{
-		"name" : "thing", 
+		"name" : "Saumon cuit sous-vide", 
 		"parentPage": "index",
 		"url" : "/thing.html",
 		"content" : "fa-dashboard"
 	},
 	{
-		"name" : "thing", 
+		"name" : "Purée de petits pois", 
 		"parentPage": "index",
 		"url" : "/thing.html",
 		"content" : "fa-dashboard"
 	},
 	{
-		"name" : "thing", 
+		"name" : "Fondue d'été", 
 		"parentPage": "index",
 		"url" : "/thing.html",
 		"content" : "fa-dashboard"
 	},
 	{
-		"name" : "thing", 
+		"name" : "Choux-fleur sauce teriyaki", 
 		"parentPage": "index",
 		"url" : "/thing.html",
 		"content" : "fa-dashboard"
