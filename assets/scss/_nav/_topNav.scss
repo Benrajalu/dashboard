@@ -1,8 +1,8 @@
 #nav-userBar{
 	background:$black;
 	padding:0 .5em;
-	height:73px;
-	line-height: 73px;
+	height:50px;
+	line-height: 50px;
 	position:relative;
 	img, p, a{
 		display:inline-block;
@@ -11,11 +11,11 @@
 	img{
 		@include border-radius(100%);
 		border:3px solid $violet;
-		width:50px;
-		height:50px;
+		width:40px;
+		height:40px;
 	}
 	p{
-		@include moon(bold, 16px, #b2b2b2);
+		@include moon(bold, 12px, #b2b2b2);
 		padding-left:5px;
 		span{
 			color:#7a7a7a;
@@ -23,9 +23,9 @@
 	}
 	a{
 		position:absolute;
-		height:73px;
-		line-height: 73px;
-		@include moon(bold, 16px, #b2b2b2);
+		height:50px;
+		line-height: 50px;
+		@include moon(bold, 12px, #b2b2b2);
 		top:0px;
 		right:.5em;
 		text-decoration: none;
@@ -119,13 +119,13 @@
 			&:after{
 				content:"";
 				display:block;
-				height:15px;
-				width:15px;
+				height:10px;
+				width:10px;
 				@include border-radius(100%);
 				background:$violet;
 				position:absolute;
 				bottom:10px;
-				margin:0 0 -7.5px -7.5px;
+				margin:0 0 -5px -5px;
 				z-index:3;
 				left:50%;
 				@include transition(all 200ms ease-out);
@@ -151,7 +151,7 @@
 			}
 			a{
 				display: block;
-				line-height:100px;
+				line-height:70px;
 				text-align: center;
 				text-decoration: none;
 				div{
@@ -160,12 +160,12 @@
 					line-height: 1;
 					i{
 						color:#e0e0e0;
-						font-size:25px;
+						font-size:20px;
 						margin-bottom: 10px;
 					}
 					span{
 						display: block;	
-						@include moon(bold, 15px, #e0e0e0);
+						@include moon(light, 12px, #e0e0e0);
 						text-decoration: none;
 					}
 				}
