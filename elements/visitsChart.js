@@ -67,16 +67,16 @@ angular.module('app')
 	  		}); 
 
 	  		var startData = data.map( function( datum ) {
-	  	       return {
-	  	       	date  : datum.date,
-	  	       	visits : 0
-	  	       };
-	  	    });
+  	       return {
+  	       	date  : datum.date,
+  	       	visits : 0
+  	       };
+  	    });
 
 	  		x.domain(d3.extent(data, function(d) { return d.date; }));
 	  		y.domain([0, d3.max(data, function(d) { return d.visits; })]);
 
-	  	    svg.append("linearGradient")
+  	    svg.append("linearGradient")
 	  			.attr("id", "grad")
 	  			.attr("gradientUnits", "userSpaceOnUse")
 	  			.attr("x1", 0).attr("y1", y(2))
@@ -190,15 +190,7 @@ angular.module('app')
 	  		  /* Force D3 to recalculate and update the line */
 	  		  svg.selectAll('.area')
 	  		    .attr("d", area)
-				.transition()
-				.duration( 1000 )
-				.attrTween( 'd', function() {
-				  var interpolator = d3.interpolateArray( startData, data );
-				  
-				  return function( t ) {
-				    return area( interpolator( t ) );
-				  }
-				});
+						.datum(data)
 	  		}
 	  		 
 	  		d3.select(window).on('resize', resize);
