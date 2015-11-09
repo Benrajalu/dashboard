@@ -2,11 +2,15 @@
 	font-size:$size;
 	color:$color;
 	@if $type == 'light' {
-		font-family: 'moon-light';
+		font-family: 'Lato';
+		font-weight: 300;
 	} @else if $type == 'bold' {
-		font-family: 'moon-bold';
+		font-family: 'Lato';
+		font-weight: 700;
+		text-transform: uppercase;
    	} @else {
-		font-family: 'moon-light';
+		font-family: 'Lato';
+		font-weight: 400;
    	}
 }
 

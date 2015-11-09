@@ -12,7 +12,7 @@
 	</div>
 
 	<div class="row table-large">
-		<div class="item-list large-4 columns">
+		<div class="item-list large-4 columns card">
 			<h2 class="action-title"><span class="contents">pages <em>recentes</em></span></h2>
 			<ul class="list">
 				<li ng-repeat="page in pages.list | limitTo: 5">
@@ -25,7 +25,7 @@
 			</ul>
 		</div>
 
-		<div class="item-list large-4 columns">
+		<div class="item-list large-4 columns card">
 			<h2 class="action-title">
 				<span class="contents">Articles <em>recents</em></span><a href="#" class="action">Ajouter <i class="fa fa-plus"></i></a>
 			</h2>
@@ -42,9 +42,10 @@
 
 		<form class="card draft-card large-4 columns">
 			<h2 class="action-title">
-				<span class="contents">Brouillon <em>rapide</em></span><button type="submit" class="action">Enregistrer <i class="fa fa-save"></i></a>
+				<span class="contents">Brouillon <em>rapide</em></span>
+				<button type="submit" class="action" ng-show="quickDraft">Enregistrer <i class="fa fa-save"></i></button>
 			</h2>
-			<textarea placeholder="Votre brouillon"></textarea>
+			<textarea placeholder="Votre brouillon"  ng-model="quickDraft"></textarea>
 		</form>
 	</div>
 </div>

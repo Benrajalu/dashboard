@@ -1,7 +1,7 @@
 .view.ng-leave .page {
 	@include transition(all 500ms ease-out);
 	position:fixed;
-	top:173px;
+	top:90px;
 	left:0;
 	width:100%;
 	z-index:2;
@@ -15,7 +15,7 @@
 .view.ng-enter .page {
 	@include transition(all 500ms ease-out 200ms);
 	position:absolute;
-	top:173px;
+	top:75px;
 	//left:0;
 	width:100%;
 	@include opacity(0);
@@ -29,8 +29,8 @@
 	@include opacity(1);
 }
 
-@media only screen and (max-width:880px){
-	.view.ng-enter .page {
-		top:50px;
+@media only screen and (max-width:$tablet){
+	.view.ng-enter .page, .view.ng-leave .page {
+		top:0px;
 	}
 }
