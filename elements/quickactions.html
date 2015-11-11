@@ -1,4 +1,4 @@
-<button><i class="fa fa-bolt"></i></button>
+<button ng-click="activeQuick = !activeQuick"><i class="fa fa-bolt"></i></button>
 <ul>
 	<li ng-repeat="entry in actions">
 		<a href="{{ entry.link }}">{{ entry.name }}</a>
