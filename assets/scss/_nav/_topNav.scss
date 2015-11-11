@@ -36,9 +36,25 @@
 			@include transform(scale(1));
 			position:relative;
 			top:0px;
+			z-index:2;
+		}
+		&:after{
+			content:"";
+			display: block;
+			position: absolute;
+			top:0px;
+			right:0px;
+			height:100%;
+			width:0px;
+			z-index:1;
+			@include transition(all 200ms ease-out);
+			background:#fff;
 		}
 		&:hover{
 			color:$violet;
+			&:after{
+				width:100%;
+			}
 			i{
 				@include transform(scale(1.1));
 			}
@@ -75,6 +91,11 @@
 				@include moon(light,12px,#b2b2b2);
 				display: inline-block;
 				padding-right: 5px;
+				position:relative;
+				z-index:3;
+			}
+			&:hover:before{
+				color:$black;
 			}
 		}
 	}

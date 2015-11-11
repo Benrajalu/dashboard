@@ -1,0 +1,107 @@
+#quick-actions{
+  position:fixed;
+  bottom:-66px;
+  width:100%;
+  z-index:95;
+  left:0px;
+  @include transition(all 200ms ease-out);
+  padding:0 30px 10px;
+  > button{
+    display:block;
+    width:100px;
+    height:30px;
+    background:$black;
+    text-align: center;
+    line-height: 30px;
+    margin:0 auto;
+    border:0px;
+    &:active, &:focus{
+      outline: 0px;
+    }
+    i{
+      color:#e0e0e0;
+      font-size: 12px;
+      @include transition(all 200ms ease-out);
+    }
+  }
+  > ul{
+    height:55px;
+    background:$black;
+    text-align: center;
+    display:table;
+    table-layout: fixed;
+    border-top:1px solid #303030;
+    width:100%;
+    margin:0 auto;
+    overflow: hidden;
+    li{
+      display:table-cell;
+      vertical-align: middle;
+      border-right:1px solid #303030;
+      &:last-child{
+        border-right: 0px;
+      }
+      a{
+        display: block;
+        @include moon(light, 12px, #fff);
+        text-decoration: none;
+        line-height: 55px;
+        position: relative;
+        &:after{
+          content:"";
+          width:100%;
+          display:block;
+          height:5px;
+          background:$black;
+          position:absolute;
+          bottom:0px;
+          left:0px;
+          @include transition(all 200ms ease-out);
+        }
+        &:hover{
+          &:after{
+            background: $violet;
+          }
+        }
+      }
+    }
+  }
+
+
+  &:hover{
+    button{
+      i{
+        color:$violet;
+      }
+    }
+    bottom:0px;
+  }
+
+  @media only screen and (max-width:1000px){
+    bottom:auto;
+    top:100%;
+    @include transform(translateY(-30px));
+    padding:0px;
+    > ul{
+      @include transition(all 200ms ease-out);
+      height:auto;
+      display: block;
+      border-top:0px;
+      li{
+        display: block;
+        text-align: center;
+        border-right:0px;
+        border-bottom:1px solid #303030;
+      }
+    }
+    &:hover{
+      bottom:auto;
+      top:100%;
+      @include transform(translateY(-30px));
+    }
+    &.active{
+      z-index: 100;
+      @include transform(translateY(-100%));
+    }
+  }
+}
