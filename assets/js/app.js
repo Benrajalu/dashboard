@@ -54,6 +54,12 @@ angular.module('app', ['ngSanitize', 'ngAnimate', 'ui.router', 'ngCookies'])
         controllerAs: 'topNav'
     };
 })
+.directive('quickactions', function () {       
+    return {
+        restrict: 'A',
+        templateUrl: './elements/quickactions.html'
+    };
+})
 .directive('statCard', function () {       
     return {
         restrict: 'A',
@@ -86,6 +92,23 @@ angular.module('app', ['ngSanitize', 'ngAnimate', 'ui.router', 'ngCookies'])
     $http.get('./data/articles.json').success(function(data){
       $scope.articles = data;
     });
+
+  // Quick actions
+    $scope.actions = [
+      {
+        'link': 'articles/new', 
+        'name': 'Nouvel Article'
+      },
+      {
+        'link': 'settings', 
+        'name': 'Gérer mes résaux sociaux'
+      }
+      ,
+      {
+        'link': 'contest', 
+        'name': 'Gérer les messages'
+      }
+    ]
 
 })
 .controller('nopeCtrl', function($scope, $rootScope, $http, $stateParams, $timeout) {

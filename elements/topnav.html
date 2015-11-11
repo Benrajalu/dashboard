@@ -15,7 +15,7 @@
 		<img ng-if="user.customImage == true" ng-src="assets/img/{{ user.image }}" alt="{{ user.name }}">
 		<img ng-if="user.customImage != true " ng-src="http://placehold.it/50x50" alt="{{ user.name }}" />
 
-		<a href="" ng-click="logout()" title="Deconnexion"><i class="fa fa-close"></i></a>
+		<a href="" ng-click="logout()" title="Deconnexion"><i class="fa fa-power-off"></i></a>
 	</div>
 </nav>
 <button id="menu-toggle" title="Afficher le menu mobile" ng-click="menuUp = !menuUp" ng-class="{'active' : menuUp}"><i class="fa fa-plus"></i></button>
