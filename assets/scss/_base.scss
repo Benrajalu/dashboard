@@ -26,11 +26,13 @@ html{
 
 .item-list{
 	padding:15px;
+	position: relative;
 	.list{
 		//float:left;
 		//width:70%;
 		//padding-left:15px;
 		padding: 0px 15px;
+		min-height: 180px;
 		li{
 			display:block;
 			background:#fff;
@@ -113,6 +115,33 @@ html{
 				}
 			}
 		}
+		li.empty{
+			text-align: center;
+			vertical-align: middle;
+			position: absolute;
+			margin:auto;
+			top:50%;
+			left:0px;
+			width: 100%;
+			@include moon(bold, 12px, #cacaca);
+			a{
+				color:$violet;
+				@include transition(all 300ms ease-out);
+				&:hover{
+					color:$black;
+				}
+			}
+			&:after, &:before{
+				display: none;
+			}
+			a{
+				display: block;
+				padding: 10px 0px;
+				&:after, &:before{
+					display: none;
+				}
+			}
+		}
 	}
 }
 
@@ -184,6 +213,7 @@ html{
 			position:relative;
 			z-index:3;
 			border-bottom:15px solid #e0e0e0;
+			background: #fff;
 		}
 		textarea{
 			display:block;
